@@ -6,7 +6,9 @@
   <th> <%= book.title %> </th>
   <th> <%= book.body %> </th>
   <span>
-   <th> <%= link_to'show',@rout_path %> </th>
+   <th> <%= link_to'show',book_path(book.id) %> </th>
+      <th> <%= link_to'edit',edit_book_path(book.id) %> </th>
+         <th> <%= link_to'destroy',book_path(book.id),method: :delete %> </th>
   </span>
 </tr>
 </table>
@@ -16,12 +18,16 @@
 <h2>New book</h2>
 <%= form_with model:@book, local:true do |f| %>
 <label>Title</label>
+<p>
 <%= f.text_field :title %>
-
+</p>
+<p>
 <label>Body</label>
+</p>
+<p>
 <%= f.text_area :body %>
-
+<p>
 <%= f.submit 'Create Book' %>
-
+</p>
 <% end %>
 

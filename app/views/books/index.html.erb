@@ -1,50 +1,20 @@
 <h1>Books</h1>
-<%= form_with model:@book, local:true do |f| %>
+<% @books.each do |book| %>
+
 <table>
 <tr>
-  <th>Title</th>
-  <th>Body</th>
-</tr>
-
-<tr>
-  <td>リーダブルコード</td>
-  <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
-</tr>
-
-<tr>
-  <td>トラブル知らずのシステム設計</td>
-  <td>システム設計の要点を図解で説明してくれます</td>
-</tr>
-
-<tr>
-  <td>たのしいRudy</td>
-  <td>Rudyの入門におすすめです</td>
-</tr>
-
-<tr>
-  <td>入門Git</td>
-  <td>gitについての基本操作から内部構造まで解説してくれます</td>
-</tr>
-
-<tr>
-  <td>アルゴリズム図鑑</td>
-  <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
-</tr>
-
-<tr>
-  <td>達人プログラマー</td>
-  <td>プログラム入門者は必読！</td>
-</tr>
-
-<tr>
-  <td>データベース実践入門</td>
-  <td>効率的なSQL文を教えてくれます</td>
+  <th> <%= book.title %> </th>
+  <th> <%= book.body %> </th>
+  <span>
+   <th> <%= link_to'show',@rout_path %> </th>
+  </span>
 </tr>
 </table>
 
+<% end %>
 
 <h2>New book</h2>
-
+<%= form_with model:@book, local:true do |f| %>
 <label>Title</label>
 <%= f.text_field :title %>
 
@@ -54,3 +24,4 @@
 <%= f.submit 'Create Book' %>
 
 <% end %>
+
